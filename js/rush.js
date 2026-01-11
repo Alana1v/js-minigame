@@ -14,7 +14,7 @@ function start() {
   // cria o carro do jogador
 car = newPiece(80, 340); 
 car.id = "car";
-car.style.height = "40px"; 
+car.style.height = "50px"; 
 
 
   obstacles = [];

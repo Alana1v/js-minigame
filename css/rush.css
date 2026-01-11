@@ -1,35 +1,80 @@
 /* CAMPO DO JOGO (PISTA) */
 #field {
-  background-color: #666;
+  background: url(../imgs/pista8.jpg);
   overflow: hidden;
 }
 
 /* CARRO DO JOGADOR  */
 #car {
-  width: 20px;
-  height: 40px;
+  width: 30px;
+  height: 50px;
   background-color: red;
   position: absolute;
   bottom: 0;
-  border-radius: 4px;
+  border-radius: 10px 10px 6px 6px;
   z-index: 2;
+}
+
+/* vidro */
+#car::before {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 10px;
+  background: rgba(255,255,255,0.5);
+  bottom: 4px;
+  left: 4px;
+  border-radius: 3px;
+}
+
+/* faróis */
+#car::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: yellow;
+  top: 6px;
+  left: 5px;
+  border-radius: 2px;
+
+  box-shadow: 15px 0 0 yellow;
 }
 
 /*  OBSTÁCULOS (OUTROS CARROS) */
 .obstacle {
-  width: 20px;
-  height: 40px;
-  background-color: black;
+  width: 30px;
+  height: 50px;
+  background-color: rgb(0, 149, 255);
   position: absolute;
-  border-radius: 4px;
+  bottom: 0;
+  border-radius: 10px 10px 6px 6px;
+  z-index: 2;
 }
 
-/*  FAIXAS DA PISTA */
-.lane {
+/* vidro */
+.obstacle::before{
+  content: "";
   position: absolute;
-  width: 4px;
-  height: 40px;
-  background-color: white;
-  left: 98px;
-  opacity: 0.8;
+  width: 22px;
+  height: 10px;
+  background: rgba(255,255,255,0.5);
+  bottom: 4px;
+  left: 4px;
+  border-radius: 3px;
 }
+
+/* faróis */
+.obstacle::after{
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: yellow;
+  top: 6px;
+  left: 5px;
+  border-radius: 2px;
+
+  box-shadow: 15px 0 0 yellow;
+}
+
