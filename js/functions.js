@@ -40,6 +40,7 @@ function startGame(){
 }
 
 function endGame(){
+  field.classList.remove("running");
   clearInterval(timer);
   alert("Game Over");
   timer = null;

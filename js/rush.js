@@ -4,12 +4,17 @@ let obstacles = [];
 let speed = 20;
 let score = 0;
 
-const lanes = [0,60,120,180];
+const lanes = [5,55,110,165];
 let currentLane = 1;
 nome_jogo.innerText = "Corrida";
 
 
 function start() {
+
+  currentLane = Math.floor(lanes.length / 2);
+
+  obstacles.forEach(obs => obs.remove());
+  obstacles = [];
 
   Array.from(field.children).forEach(e => e.remove());
 
@@ -19,11 +24,14 @@ car.id = "car";
 car.style.height = "50px"; 
 
 
-  obstacles = [];
+  
   score = 0;
+  speed= 20;
   points.innerText = score;
 
   direction = null;
+
+  field.classList.add("running")
 }
 
 // LOOP PRINCIPAL (chamada pelo functions.js) =====
@@ -38,28 +46,29 @@ function loop() {
 // ===== MOVIMENTO DO CARRO =====
 function moveCar() {
  
-  if (direction === 37 && currentLane > 0){
+  if (direction === 37){
     currentLane --;
     direction = null;
   }
-  if (direction === 39 && currentLane < lanes.length-1){
+  if (direction === 39){
     currentLane ++;
     direction = null;
   }
+  // colisão com as paredes
+  if (currentLane < 0 || currentLane == lanes.length) {
+  endGame();
+  return;
+}
+
 car.style.left = lanes[currentLane] + "px";
 
-  // colisão com as paredes
-  let left = getPosition (car, "left")
-  if (left < 0 || left > 180) {
-
-    endGame();
-  }
+  
 }
 
 
 //  OBSTÁCULOS
 function createObstacle() {
-  if (Math.random() < 0.3) {
+  if (Math.random() < 0.2) {
     let lane = Math.floor(Math.random() * lanes.length);
     let obs = newPiece(lanes[lane], 0);
     obs.classList.add("obstacle");
@@ -81,7 +90,7 @@ if(!obs.pontuado && top > getPosition (car, "top")) {
   obs.pontuado = true;
 
 //AUMENTAR DIFICULDADE
-if (score % 200 === 0 && speed < 60)
+if (score % 100 === 0 && speed < 60)
 {
   speed += 5;
 }

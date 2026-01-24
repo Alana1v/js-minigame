@@ -1,9 +1,9 @@
 :root{
-  --bg-default: #4f4f4f;
-  --bg-game: #212121;
-  --bg-button: #fdfa29;
-  --bg-button-option: #0076c5;
-  --bg-white: #f7f7f7;
+  --bg-default: #7b7e89;
+  --bg-game: #a10a0a;
+  --bg-button: #000000;
+  --bg-button-option: #3762ff;
+  --bg-white: #ffffff;
 }
 *{
   font-size: 20px;

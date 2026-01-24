@@ -4,6 +4,15 @@
   overflow: hidden;
 }
 
+
+ #field.running{
+  animation: roadMove 10s linear infinite;
+ }
+ 
+ @keyframes roadMove {
+  from { background-position-y: 0; }
+  to   { background-position-y: 568px; }
+}
 /* CARRO DO JOGADOR  */
 #car {
   width: 30px;
@@ -13,7 +22,9 @@
   bottom: 0;
   border-radius: 10px 10px 6px 6px;
   z-index: 2;
+ 
 }
+
 
 /* vidro */
 #car::before {
@@ -50,6 +61,7 @@
   bottom: 0;
   border-radius: 10px 10px 6px 6px;
   z-index: 2;
+  
 }
 
 /* vidro */
